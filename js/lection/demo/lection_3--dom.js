@@ -10,8 +10,7 @@
 let userDialog = document.querySelector(".setup");
 userDialog.classList.remove("hidden");
 
-// Выбираем куда будем вставлять
-let similarListElement = document.querySelector(".setup-similar-list");
+
 // Выбираем template элемент для генерации 1го волшебника
 let similarWizardTemplate = document
   .querySelector("#similar-wizard-template")

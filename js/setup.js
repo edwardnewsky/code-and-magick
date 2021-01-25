@@ -2,7 +2,7 @@
 
 // 1. Покажите блок .setup, убрав в JS-коде у него класс .hidden.
 let setupWindow = document.querySelector(".setup");
-setupWindow.classList.remove("hidden");
+// setupWindow.classList.remove("hidden");
 
 // 2. Создайте массив, состоящий из 4 сгенерированных JS объектов, которые будут описывать похожих персонажей.
 
