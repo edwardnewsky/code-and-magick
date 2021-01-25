@@ -95,3 +95,61 @@ for (let i = 0; i < 4; i++) {
   let setupSimilar = document.querySelector(".setup-similar");
   setupSimilar.classList.remove("hidden");
 }
+
+// -----------------------------------------------------------------------------
+
+// 1. Окно.setup должно открываться по нажатию на блок.setup-open. Открытие окна производится удалением класса hidden у блока o Окно.setup должно закрываться по нажатию на элемент.setup-close, расположенный внутри окна
+
+// Сам попап
+let setup = document.querySelector(".setup");
+// Div на открытие
+let setupOpen = document.querySelector(".setup-open");
+// Span на закрытие (внутри setup)
+let setupClose = setup.querySelector(".setup-close");
+
+// Обработчик события нажатия ESC => Функция закрытия попапа
+let popupEscHandler = (evt) => {
+  if (evt.keyCode === 27) {
+    closePopup();
+  }
+};
+
+// Функция открытия попапа
+let openPopup = () => {
+  setup.classList.remove("hidden");
+  // Добавляем обработчик ESC
+  document.addEventListener("keudpwn", popupEscHandler);
+};
+
+// Функция закрытия попапа
+let closePopup = () => {
+  setup.classList.add("hidden");
+  // Удаляем обработчик ESC
+  document.removeEventListener("keydown", popupEscHandler);
+};
+
+// Попап открывается по клику на setupOpen
+setupOpen.addEventListener("click", () => {
+  openPopup();
+});
+
+// Попап открывается на нажатие ENTER на setupOpen
+setupOpen.addEventListener("keydown", (evt) => {
+  if (evt.keyCode === 13) {
+    openPopup();
+  }
+});
+
+// Попап закрывается по клику на setupClose
+setupClose.addEventListener("click", () => {
+  closePopup();
+});
+
+// Попап закрывается по нажатия ENTER на setupClose
+setupClose.addEventListener("keydown", (evt) => {
+  if (evt.keyCode === 13) {
+    closePopup();
+  }
+});
+
+// Если фокус находится на форме ввода имена то попап на ESC закрываться не должен
