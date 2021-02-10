@@ -85,6 +85,35 @@
     return cloneWizard;
   };
 
+  // Изменение списка волшебников
+
+  let wizardCoat = setupWindow.querySelector(".wizard-coat");
+  let wizardEyes = setupWindow.querySelector(".wizard-eyes");
+  let wizardFireball = setupWindow.querySelector(".setup-fireball-wrap");
+
+  let setRandomColor = (coatColorArr, eyesColorArr, fireballColorArr) => {
+    wizardCoat.addEventListener("click", (evt) => {
+      wizardCoat.style.fill = coatColorArr[getRandom(coatColorArr)];
+    });
+    wizardEyes.addEventListener("click", (evt) => {
+      wizardEyes.style.fill = eyesColorArr[getRandom(eyesColorArr)];
+    });
+    wizardFireball.addEventListener("click", (evt) => {
+      wizardFireball.style.backgroundColor =
+        fireballColorArr[getRandom(fireballColorArr)];
+    });
+  };
+
+  setRandomColor(WIZARD_COATS, WIZARD_EYES, WIZARD_FIREBALL);
+
+  let setPointer = () => {
+    wizardCoat.style.cursor = "pointer";
+    wizardEyes.style.cursor = "pointer";
+    wizardFireball.style.cursor = "pointer";
+  };
+
+  setPointer();
+
   // 4. Отрисуйте сгенерированные DOM-элементы в блок .setup-similar-list. Для вставки элементов используйте DocumentFragment.
   let fragment = document.createDocumentFragment();
   for (let i = 0; i < 4; i++) {

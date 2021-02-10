@@ -65,6 +65,7 @@
 
   // Input ввода иимени
   let inputUserName = document.querySelector(".setup-user-name");
+  inputUserName.style.cursor = "pointer";
 
   // 1.3. Форма должна отправляться на урл https://js.dump.academy/code-and-magick методом POST с типом multipart/form-data
   let form = setupWindow.querySelector(".setup-wizard-form");
@@ -96,56 +97,6 @@
   };
 
   validateInputUserName();
-
-  // 3. Изменение цвета мантии персонажа по нажатию. Цвет мантии .setup-wizard .wizard-coat должен обновляться по нажатию на неё. Цвет мантии задаётся через изменение инлайнового CSS-свойства fill для элемента. Цвет должен сменяться произвольным образом на один из следующих цветов:
-  // o rgb(101, 137, 164)
-  // o rgb(241, 43, 107)
-  // o rgb(146, 100, 161)
-  // o rgb(56, 159, 117)
-  // o rgb(215, 210, 55)
-  // o rgb(0, 0, 0)
-  // 4. Изменение цвета глаз персонажа по нажатию. Цвет глаз волшебника меняется по нажатию на блок .setup-wizard .wizard-eyes. Возможные варианты цвета глаз персонажа:
-  // o black
-  // o red
-  // o blue
-  // o yellow
-  // o green
-  // 5. Изменение цвета фаерболов по нажатию. Цвет задаётся через изменение фона у блока .setup-fireball-wrap. Возможные варианты цвета:
-  // o #ee4830
-  // o #30a8ee
-  // o #5ce6c0
-  // o #e848d5
-  // o #e6e848
-
-  let wizardCoat = setupWindow.querySelector(".wizard-coat");
-  let wizardEyes = setupWindow.querySelector(".wizard-eyes");
-  let wizardFireball = setupWindow.querySelector(".setup-fireball-wrap");
-
-  let setRandomColor = (coatColorArr, eyesColorArr, fireballColorArr) => {
-    // Добавляем обработчки изменения цветов персонажа по нажатию ('click')
-    wizardCoat.addEventListener("click", (evt) => {
-      wizardCoat.style.fill = coatColorArr[getRandom(coatColorArr)];
-    });
-    wizardEyes.addEventListener("click", (evt) => {
-      wizardEyes.style.fill = eyesColorArr[getRandom(eyesColorArr)];
-    });
-    wizardFireball.addEventListener("click", (evt) => {
-      wizardFireball.style.backgroundColor =
-        fireballColorArr[getRandom(fireballColorArr)];
-    });
-  };
-
-  setRandomColor(WIZARD_COATS, WIZARD_EYES, WIZARD_FIREBALL);
-
-  // Задаем курсору poiner при наведении на элементы взаимодействия
-  let setPointer = () => {
-    wizardCoat.style.cursor = "pointer";
-    wizardEyes.style.cursor = "pointer";
-    wizardFireball.style.cursor = "pointer";
-    inputUserName.style.cursor = "pointer";
-  };
-
-  setPointer();
 
   // -----------------------------------------------------------------------------
 
