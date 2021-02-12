@@ -49,20 +49,31 @@
 
 // -----------------------------------------------------------------------------
 
-window.myshka = "1";
-let lyagushka = "2";
+// window.myshka = "1";
+// let lyagushka = "2";
 
-let teremok = (param1, param2) => {
-  let teremokRoom = () => {
-    // let lyagushka = "3"; // Так делать нельзя
+// let teremok = (param1, param2) => {
+//   let teremokRoom = () => {
+//     // let lyagushka = "3"; // Так делать нельзя
 
-    console.log(lyagushka);
-  };
+//     console.log(lyagushka);
+//   };
 
-  teremokRoom();
-  console.log(lyagushka);
-};
+//   teremokRoom();
+//   console.log(lyagushka);
+// };
 
-teremok();
+// teremok();
 
 // -----------------------------------------------------------------------------
+
+let buttons = document.querySelectorAll("button");
+
+for (let i = 0; i < buttons.length; i++) {
+  let button = buttons[i];
+  console.log(button);
+
+  button.addEventListener("click", (evt) => {
+    console.log(button.value);
+  });
+}
